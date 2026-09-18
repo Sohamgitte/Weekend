@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WEEKEND | Sports Venue Booking</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-weekend">
+  <div class="container">
+    <a class="navbar-brand" href="home.html">WEEK<span>END</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link active" href="home.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="venues.html">Venues</a></li>
+        <li class="nav-item"><a class="nav-link" href="my-bookings.html">My Bookings</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+      <div id="authArea"></div>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero section with search -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 class="mb-3">Find Your Game. Book Your Ground.</h1>
+        <p class="mb-4">
+          WEEKEND helps you find nearby cricket turfs, football grounds and indoor courts in Chhatrapati Sambhajinagar,
+          check available time slots and book them in a few clicks.
+        </p>
+
+        <form class="search-box" id="heroSearchForm">
+          <div class="row g-2">
+            <div class="col-md-5">
+              <input type="text" class="form-control" id="heroLocation" placeholder="Enter area (e.g. Wakad)">
+            </div>
+            <div class="col-md-4">
+              <select class="form-select" id="heroSport">
+                <option value="">All Sports</option>
+                <option>Cricket</option>
+                <option>Football</option>
+                <option>Badminton</option>
+                <option>Basketball</option>
+                <option>Tennis</option>
+                <option>Volleyball</option>
+              </select>
+            </div>
+            <div class="col-md-3 d-grid">
+              <button class="btn btn-green" type="submit"><i class="bi bi-search"></i> Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular sports -->
+<section class="py-5">
+  <div class="container">
+    <h4 class="section-title">Popular Sports</h4>
+    <p class="section-sub">Pick a sport and see the grounds available for it.</p>
+
+    <div class="row g-3">
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Cricket')" role="button">
+          <img src="assets/images/cricket.jpg" class="card-img-top" alt="Cricket">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Cricket</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Football')" role="button">
+          <img src="assets/images/football.jpg" class="card-img-top" alt="Football">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Football</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Badminton')" role="button">
+          <img src="assets/images/badminton.jpg" class="card-img-top" alt="Badminton">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Badminton</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Basketball')" role="button">
+          <img src="assets/images/basketball.jpg" class="card-img-top" alt="Basketball">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Basketball</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Tennis')" role="button">
+          <img src="assets/images/tennis.jpg" class="card-img-top" alt="Tennis">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Tennis</span></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-2">
+        <div class="card sport-card h-100" onclick="openSport('Volleyball')" role="button">
+          <img src="assets/images/volleyball.jpg" class="card-img-top" alt="Volleyball">
+          <div class="card-body text-center py-2"><span class="fw-semibold">Volleyball</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Popular venues (generated by JavaScript) -->
+<section class="py-5 bg-light-gray">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-1">
+      <h4 class="section-title mb-0">Popular Venues</h4>
+      <a href="venues.html" class="small text-decoration-none">View all</a>
+    </div>
+    <p class="section-sub">Top-rated turfs and courts across Chhatrapati Sambhajinagar.</p>
+
+    <div class="row g-4" id="popularVenues"></div>
+  </div>
+</section>
+
+<!-- Why WEEKEND -->
+<section class="py-5">
+  <div class="container">
+    <h4 class="section-title">Why WEEKEND?</h4>
+    <p class="section-sub">Everything you need to get your next game started.</p>
+
+    <div class="row g-3">
+      <div class="col-md-3 col-sm-6">
+        <div class="card info-card h-100 text-center p-3">
+          <i class="bi bi-calendar-check fs-3 text-success"></i>
+          <h6 class="mt-2">Easy Booking</h6>
+          <p class="venue-meta mb-0">Choose date, duration and slot in one page.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card info-card h-100 text-center p-3">
+          <i class="bi bi-trophy fs-3 text-success"></i>
+          <h6 class="mt-2">Multiple Sports</h6>
+          <p class="venue-meta mb-0">Cricket, football, badminton, tennis and more.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card info-card h-100 text-center p-3">
+          <i class="bi bi-cash-coin fs-3 text-success"></i>
+          <h6 class="mt-2">Clear Pricing</h6>
+          <p class="venue-meta mb-0">Total amount is calculated before you pay.</p>
+        </div>
+      </div>
+      <div class="col-md-3 col-sm-6">
+        <div class="card info-card h-100 text-center p-3">
+          <i class="bi bi-lightning-charge fs-3 text-success"></i>
+          <h6 class="mt-2">Quick Confirmation</h6>
+          <p class="venue-meta mb-0">Booking ID is generated instantly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <h5 class="text-white">WEEK<span style="color:#2e9e4f">END</span></h5>
+        <p class="small mb-0">Find and book trusted sports venues across Chhatrapati Sambhajinagar, all in one place.</p>
+      </div>
+      <div class="col-md-3">
+        <h6 class="text-white">Pages</h6>
+        <p class="small mb-1"><a href="venues.html">Venues</a></p>
+        <p class="small mb-1"><a href="my-bookings.html">My Bookings</a></p>
+        <p class="small mb-1"><a href="about.html">About</a></p>
+      </div>
+      <div class="col-md-4">
+        <h6 class="text-white">Contact</h6>
+        <p class="small mb-1"><i class="bi bi-envelope"></i> hello@weekendplay.in</p>
+        <p class="small mb-1"><i class="bi bi-geo-alt"></i> Chhatrapati Sambhajinagar, Maharashtra</p>
+      </div>
+    </div>
+    <div class="footer-note text-center">&copy; 2026 WEEKEND Sports. All rights reserved.</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/data.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
