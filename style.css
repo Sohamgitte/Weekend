@@ -158,7 +158,7 @@ a:hover { color: var(--green-dark); }
   color: #ffffff;
   padding: 120px 0 80px;
   position: relative;
-  background: url("assets/images/hero.jpg") center center/cover no-repeat;
+  background: url("hero.jpg") center center/cover no-repeat;
   margin-top: -76px; /* offset navbar height */
 }
 
